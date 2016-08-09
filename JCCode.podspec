@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = 'JCCode'
-    s.version      = '0.1.1'
+    s.version      = '0.1.2'
     s.summary      = 'An easy way read or write QRCode'
     s.homepage     = 'https://github.com/joeykika/JCCode'
     s.license      = 'MIT'
