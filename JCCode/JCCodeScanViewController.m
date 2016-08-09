@@ -109,8 +109,8 @@
 - (void)codeScannerDidGetString:(NSString *)string forCode:(NSString *)codeType {
     [self.scanView stopRunning];
     
-    if([self.delegate respondsToSelector:@selector(JCCodeScanViewController:didGetString:forCode:)]) {
-        [self.delegate JCCodeScanViewController:self didGetString:string forCode:codeType];
+    if([self.delegate respondsToSelector:@selector(JCCodeScanViewController:didGetString:forCode:fromPhoto:)]) {
+        [self.delegate JCCodeScanViewController:self didGetString:string forCode:codeType fromPhoto:NO];
     }
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -137,11 +137,10 @@
     __block NSString * string = [JCCodeDecoder stringInQRCodeImage:image];
     
     [self dismissViewControllerAnimated:YES completion:^{
-        if([string length]) {
-            if([self.delegate respondsToSelector:@selector(JCCodeScanViewController:didGetString:forCode:)]) {
-                [self.delegate JCCodeScanViewController:self didGetString:string forCode:AVMetadataObjectTypeQRCode];
-            }
+        if([self.delegate respondsToSelector:@selector(JCCodeScanViewController:didGetString:forCode:fromPhoto:)]) {
+            [self.delegate JCCodeScanViewController:self didGetString:string forCode:AVMetadataObjectTypeQRCode fromPhoto:YES];
         }
+        
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

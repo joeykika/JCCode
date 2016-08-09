@@ -13,7 +13,7 @@
 
 @protocol JCCodeScanViewControllerDelegate <NSObject>
 @optional
-- (void)JCCodeScanViewController:(JCCodeScanViewController *)viewController didGetString:(NSString *)string forCode:(NSString *)codeType;
+- (void)JCCodeScanViewController:(JCCodeScanViewController *)viewController didGetString:(NSString *)string forCode:(NSString *)codeType fromPhoto:(BOOL)bFromPhoto;
 
 @end
 
